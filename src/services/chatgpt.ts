@@ -7,17 +7,30 @@ export async function sendMessage(opts: {
   messages: IMessage[];
   token: string;
 }) {
-  return await axios.post<IChatGPTResponse>(
+  const res = await axios.post<IChatGPTResponse>(
     API_URL,
     {
       model: 'gpt-3.5-turbo',
-      // TODO: more arguments
+      temperature: 0.5,
+      top_p: 0.8,
+      presence_penalty: 1.0,
+      max_tokens: 500,
+      messages: opts.messages,
+      stream: false,
     },
     {
       headers: {
         'Content-Type': 'application/json',
         Authorization: `Bearer ${opts.token}`,
       },
+      validateStatus: () => true,
     },
   );
+  if (!res) {
+    throw new Error('Network Error');
+  }
+  if (res.data.error) {
+    throw new Error(res.data.error.message);
+  }
+  return res;
 }

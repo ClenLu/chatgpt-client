@@ -4,6 +4,11 @@ export interface IMessage {
 }
 
 export interface IChatGPTResponse {
+  error?: {
+    type: string;
+    code: string;
+    message: string;
+  };
   created: number;
   choices: {
     index: number;
@@ -23,4 +28,5 @@ export interface IChat {
   createdAt: number;
   title: string;
   messages: IMessage[];
+  systemMessage: string;
 }

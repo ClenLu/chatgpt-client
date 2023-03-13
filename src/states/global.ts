@@ -1,23 +1,21 @@
-import { proxy } from 'umi';
+import { proxyWithPersist } from '@/utils/proxyWithPersist';
 
-export const state = proxy<{
-  config: {
-    token: string;
-  };
-  ui: {
-    activeChatId: string;
-  };
-}>({
-  config: {
+interface IState {
+  token: string;
+  activeChatId: string;
+}
+export const state = proxyWithPersist<IState>(
+  {
     token: '',
-  },
-  ui: {
     activeChatId: '',
   },
-});
+  {
+    key: 'CC_global',
+  },
+);
 
 export const actions = {
-  setToken(token: string) {
-    state.config.token = token;
+  update(newState: Partial<IState>) {
+    Object.assign(state, newState);
   },
 };

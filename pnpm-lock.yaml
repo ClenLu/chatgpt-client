@@ -2,8 +2,10 @@ lockfileVersion: 5.4
 
 specifiers:
   '@headlessui/react': ^1.7.13
+  '@iconify-json/bi': 1.1.15
   '@iconify-json/ri': 1.1.5
   '@types/invariant': ^2.2.35
+  '@types/lodash-es': ^4.17.6
   '@types/react': ^18
   '@types/react-dom': ^18
   '@umijs/plugins': ^4.0.57
@@ -11,6 +13,7 @@ specifiers:
   class-variance-authority: ^0.4.0
   clsx: ^1.2.1
   invariant: ^2.2.4
+  lodash-es: ^4.17.21
   prettier: ^2
   prettier-plugin-organize-imports: ^2
   prettier-plugin-packagejson: ^2
@@ -20,8 +23,10 @@ specifiers:
 
 devDependencies:
   '@headlessui/react': 1.7.13
+  '@iconify-json/bi': 1.1.15
   '@iconify-json/ri': 1.1.5
   '@types/invariant': 2.2.35
+  '@types/lodash-es': 4.17.6
   '@types/react': 18.0.28
   '@types/react-dom': 18.0.11
   '@umijs/plugins': 4.0.57_k5cacgh3g6vd4x3ocdhfxh2nuq
@@ -29,6 +34,7 @@ devDependencies:
   class-variance-authority: 0.4.0_typescript@4.9.5
   clsx: 1.2.1
   invariant: 2.2.4
+  lodash-es: 4.17.21
   prettier: 2.8.4
   prettier-plugin-organize-imports: 2.3.4_silln3pw57har7jydmecgzoypa
   prettier-plugin-packagejson: 2.4.3_prettier@2.8.4
@@ -2521,6 +2527,12 @@ packages:
       client-only: 0.0.1
     dev: true
 
+  /@iconify-json/bi/1.1.15:
+    resolution: {integrity: sha512-NsbDeTVIYwgPLyAT0UgzuaCl79V65Z+M319BjbdEwdnbDGuaYgmAMBJUIWrnBEVoEg7rtouAuvaZRb3nIYIRcA==}
+    dependencies:
+      '@iconify/types': 2.0.0
+    dev: true
+
   /@iconify-json/ri/1.1.5:
     resolution: {integrity: sha512-OrxKcKFHanTSPmU5esvSn5YfpNgjwJJ+6rkK1I1pIRCPXfuvmlTJGUjf+L5ZQHUiMWLQz+M2bqXx8iBUtW35Gg==}
     dependencies:
@@ -3036,6 +3048,16 @@ packages:
 
   /@types/json-schema/7.0.11:
     resolution: {integrity: sha512-wOuvG1SN4Us4rez+tylwwwCV1psiNVOkJeM3AUWUNWg/jDQY2+HE/444y5gc+jBmRqASOm2Oeh5c1axHobwRKQ==}
+    dev: true
+
+  /@types/lodash-es/4.17.6:
+    resolution: {integrity: sha512-R+zTeVUKDdfoRxpAryaQNRKk3105Rrgx2CFRClIgRGaqDTdjsm8h6IYA8ir584W3ePzkZfst5xIgDwYrlh9HLg==}
+    dependencies:
+      '@types/lodash': 4.14.191
+    dev: true
+
+  /@types/lodash/4.14.191:
+    resolution: {integrity: sha512-BdZ5BCCvho3EIXw6wUCXHe7rS53AIDPLE+JzwgT+OsJk53oBfbSmZZ7CX4VaRoN78N+TJpFi9QPlfIVNmJYWxQ==}
     dev: true
 
   /@types/node/18.15.0:
@@ -6368,6 +6390,10 @@ packages:
     engines: {node: '>=10'}
     dependencies:
       p-locate: 5.0.0
+    dev: true
+
+  /lodash-es/4.17.21:
+    resolution: {integrity: sha512-mKnC+QJ9pWVzv+C4/U3rRsHapFfHvQFoFB92e52xeyGMcX6/OlIl78je1u8vePzYZSkkogMPJ2yjxxsb89cxyw==}
     dev: true
 
   /lodash.debounce/4.0.8:

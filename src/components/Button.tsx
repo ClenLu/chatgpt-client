@@ -14,6 +14,7 @@ const variants = cva(base, {
     },
     size: {
       default: 'h-10 px-4',
+      tiny: 'h-7 px-1 text-sm',
       small: 'h-9 px-2 text-sm',
       large: 'h-11 px-8 text-lg',
     },

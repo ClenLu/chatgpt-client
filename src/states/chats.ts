@@ -1,14 +1,19 @@
-import { proxy } from 'umi';
 import type { IChat, IMessage } from '@/types';
 import invariant from 'invariant';
+import { proxyWithPersist } from '@/utils/proxyWithPersist';
 
-export const state = proxy<{
+export const state = proxyWithPersist<{
   chats: string[];
   chatsById: { [key: string]: IChat };
-}>({
-  chats: [],
-  chatsById: {},
-});
+}>(
+  {
+    chats: [],
+    chatsById: {},
+  },
+  {
+    key: 'CC_chats',
+  },
+);
 
 const CHAT_NOT_FOUND = 'Chat not found';
 
@@ -21,12 +26,15 @@ export const actions = {
       id,
       messages: [],
       title: 'Chat with ChatGPT',
+      systemMessage:
+        'You are ChatGPT, a large language model trained by OpenAI.',
     };
-    return id;
+    return state.chatsById[id];
   },
   delete(id: string) {
     invariant(state.chats.includes(id), CHAT_NOT_FOUND);
-    state.chats = state.chats.filter((chatId) => chatId !== id);
+    const index = state.chats.indexOf(id);
+    state.chats.splice(index, 1);
     delete state.chatsById[id];
   },
   update(id: string, chat: Partial<IChat>) {
